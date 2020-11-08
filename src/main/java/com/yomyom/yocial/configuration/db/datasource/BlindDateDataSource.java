@@ -17,6 +17,10 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
 
+/**
+ * jpa config : https://www.baeldung.com/the-persistence-layer-with-spring-and-jpa
+ */
+
 @Configuration
 @EnableTransactionManagement
 @EnableJpaRepositories(
@@ -37,9 +41,7 @@ public class BlindDateDataSource {
         LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
         em.setDataSource(datasource);
         em.setPackagesToScan(new String[] { "com.yomyom.yocial.repository" });
-
-        JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
-        em.setJpaVendorAdapter(vendorAdapter);
+        em.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
         em.setJpaProperties(jpaProperties);
 
         return em;

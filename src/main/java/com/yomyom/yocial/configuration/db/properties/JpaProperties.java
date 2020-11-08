@@ -6,6 +6,6 @@ import org.springframework.stereotype.Component;
 import java.util.Properties;
 
 @Component
-@ConfigurationProperties(prefix = "jpa.properties")
+@ConfigurationProperties(prefix = "spring.jpa.properties")
 public class JpaProperties extends Properties {
 }

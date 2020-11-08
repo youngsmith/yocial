@@ -7,7 +7,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 @Component
-@ConfigurationProperties(prefix = "datasource")
+@ConfigurationProperties(prefix = "spring.datasource")
 @Getter
 @Setter
 public class DBProperties extends HikariConfig {
