@@ -37,10 +37,10 @@ public class BlindDateDataSource {
     }
 
     @Bean
-    public LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource datasource) {
+    public LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource dataSource) {
         LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
-        em.setDataSource(datasource);
-        em.setPackagesToScan(new String[] { "com.yomyom.yocial.repository" });
+        em.setDataSource(dataSource);
+        em.setPackagesToScan(new String[] { "com.yomyom.yocial.repository", "com.yomyom.yocial.dto" });
         em.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
         em.setJpaProperties(jpaProperties);
 
