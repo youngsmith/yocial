@@ -1,22 +1,22 @@
 package com.yomyom.yocial.dto;
 
 import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Builder;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
+import org.hibernate.validator.constraints.Range;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
-@Table(name = "test")
-@Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter
-@Setter
+@Data
+@Builder
 public class TestDto {
-    @Id
+    @Range(max = 10, min = 0)
     private int id;
+    @Size(min = 2, max = 10)
+    @NotBlank
     private String name;
 }

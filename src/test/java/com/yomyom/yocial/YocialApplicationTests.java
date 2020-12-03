@@ -1,21 +1,26 @@
 package com.yomyom.yocial;
 
+import com.yomyom.yocial.repository.MemberRepository;
 import com.yomyom.yocial.service.UserService;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.mockito.Mock;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import static org.hamcrest.CoreMatchers.*;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 @SpringBootTest
 class YocialApplicationTests {
-    @Autowired
-    UserService userService;
+    @Mock
+    private MemberRepository memberRepository;
+
 
     @Test
     void contextLoads() {
-        int p = userService.get(100);
-        assertTrue(p == 1000);
+        UserService userService = new UserService(memberRepository);
+        assertThat(userService.get(10), equalTo(1001));
     }
+
 
 }
